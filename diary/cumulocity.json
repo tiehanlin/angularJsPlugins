@@ -1,0 +1,12 @@
+{
+  "name": "diary",
+  "description": "diary.",
+  "ngModules": [
+    "myapp.diary"
+  ],
+  "js": [
+    "diary.module.js",
+    "diary.config.js",
+    "diary.controller.js"
+  ]
+}

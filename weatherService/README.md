@@ -1,0 +1,1 @@
+This is an example plugin demonstrating wrapping third party libraries as Cumulocity plugin. It contains code from [angular-dark-sky](https://github.com/deanbot/angular-dark-sky) in the corresponding folder. It also contains fonts and CSS from [weather-icons](http://erikflowers.github.io/weather-icons/) in the corresponding folder.

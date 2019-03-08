@@ -1,0 +1,13 @@
+{
+  "name": "Device Details - Contact",
+  "description": "Plugin adds a Contact tab to Device Details view",
+  "category": "Examples",
+  "ngModules": [
+    "myapp.deviceContact"
+  ],
+  "js": [
+    "deviceContact.module.js",
+    "deviceContact.config.js",
+    "deviceContact.controller.js"
+  ]
+}

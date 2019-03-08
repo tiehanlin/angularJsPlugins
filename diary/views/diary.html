@@ -1,0 +1,113 @@
+<div ng-controller="diaryController">
+	<style>
+		table tr th {
+			text-align: center;
+		}
+		
+		table tr td {
+			text-align: center;
+		}
+	</style>
+	<div class="row" style="margin-top: 5px;">
+		<div class="col-xs-3">
+			<div class="form-group">
+				<label class="sr-only" for="startTime">开始时间</label>
+				<input type="text" id="startTime" ng-focus="open1()" ng-change="jugeDate()" class="form-control" uib-datepicker-popup="{{format1}}" ng-model="dt1" is-open="popup1.opened" datepicker-options="dateOptions1" ng-required="true" close-text="Close" placeholder="开始时间" show-button-bar="false" alt-input-formats="altInputFormats" />
+			</div>
+		</div>
+		<div class="col-xs-3">
+			<div class="form-group">
+				<label class="sr-only" for="endTime">结束时间</label>
+				<input type="text" id="endTime" name="endTime" ng-change="jugeDate()" ng-focus="open2()" class="form-control" uib-datepicker-popup="{{format2}}" ng-model="dt2" is-open="popup2.opened" datepicker-options="dateOptions2" ng-required="true" close-text="Close" placeholder="结束时间" show-button-bar="false" alt-input-formats="altInputFormats" />
+			</div>
+		</div>
+		<div class="col-xs-6">
+			<button type="button" ng-click="search()" class="btn btn-primary"  tooltip-placement="bottom-left" uib-tooltip="按照录入时间查询"><i class="fa fw fa-search" ></i>查询</button>
+			<button ng-click='edit(sm)' class="btn btn-danger"><i class="fa fw fa-book"></i>新增</button>
+			<button ng-click='model(sm)' class="btn btn-default"><i class="fa fw fa-book"></i>新增日志模版</button>
+		</div>
+	</div>
+
+	<table class="table table-bordered table-hover" style="margin-top: 5px;">
+		<tr>
+			<th style="width: 10%;">记录人</th>
+			<th style="width: 15%;">录入时间</th>
+			<th style="width: 15%;">日志时间</th>
+			<th style="width: 15%;">设备名称</th>
+			<th style="width: 45%;">日志内容</th>
+		</tr>
+		<tr ng-repeat='item in diary'>
+			<td>{{item.people}}</td>
+			<td>{{item.creationTime.substring(0,10)}}</td>
+			<td>{{item.time.substring(0,10)}}</td>
+			<td>{{item.device}}</td>
+			<td>{{item.text}}</td>
+		</tr>
+	</table>
+	<button class="btn center-block" ng-click='more()' ng-show='tenData'><i class="fa fw fa-spinner"></i>加载更多</button>
+</div>
+
+<script type="text/ng-template" id="editDiary.html">
+	<div class="modal-header">
+		<h3 class="modal-title" id="editDiaryTitle">新增日志</h3>
+	</div>
+	<div class="modal-body" style="height: 400px;" id="editDiaryBody">
+		<form class="form-control" style="background-color: white !important;height: 100%;" name="myModelForms">
+			<div class="form-group">
+				<label for="appid">记录人</label>
+				<input type="text" ng-model='people' class="form-control" required="required" id="people" placeholder="请输入姓名">
+			</div>
+			
+			<div class="btn-group" uib-dropdown keyboard-nav>
+				<button id="simple-btn-keyboard-nav1" type="button" class="btn btn-default" uib-dropdown-toggle>设备选择 <span class="caret"></span></button>
+				<ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav1">
+					<li role="menuitem" ng-repeat="x in devices">
+						<a href="javascript:void(0);" ng-click="chuan(x.name)">{{x.name}}</a>
+					</li>
+				</ul>
+				<input type="text" ng-model="selectValue" required="required" style="width: 200px;" placeholder="设备名称" class="form-control" />
+			</div>
+			<div class="btn-group" uib-dropdown keyboard-nav>
+				<button id="simple-btn-keyboard-nav" type="button" class="btn btn-default" uib-dropdown-toggle>工作内容 <span class="caret"></span></button>
+				<ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+					<li role="menuitem" ng-repeat="item in audits">
+						<a href="javascript:void(0);" ng-click='fill(item.text)'>{{item.title}}</a>
+					</li>
+				</ul>
+			</div>
+				<div class="form-group" style="margin-top: 5px;">
+					<label class="sr-only" for="startTime">日志时间</label>
+					<input type="text" id="startTime" ng-focus="open1()"  class="form-control" uib-datepicker-popup="{{format1}}" ng-model="dt1" is-open="popup1.opened" datepicker-options="dateOptions1" ng-required="true" close-text="Close" placeholder="日志时间" show-button-bar="false" alt-input-formats="altInputFormats" />
+				</div>
+			<div class="form-group" style="height: 50%;margin-top: 5px;">
+				<label for="secret">日志内容</label>
+				<textarea ng-model='text' style="height: 100%;resize: vertical;" required="required" class="form-control"></textarea>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-sm" ng-click='cancel()'>取消</button>
+		<button class="btn btn-sm btn-info" ng-click='save()' ng-disabled='!myModelForms.$dirty||myModelForms.$invalid'>保存</button>
+	</div>
+</script>
+<script type="text/ng-template" id="modelDiary.html">
+	<div class="modal-header">
+		<h3 class="modal-title" id="modelDiaryTitle">新增日志模版</h3>
+	</div>
+	<div class="modal-body" style="height: 300px;" id="modelDiaryBody">
+		<form class="form-control" style="background-color: white !important;height: 100%;" name="myModelForms">
+			<div class="form-group">
+				<label for="appid">模版标题</label>
+				<input type="text" ng-model='title' class="form-control" required="required" id="title" placeholder="请输入姓名">
+			</div>
+			<div class="form-group" style="height: 50%;">
+				<label for="secret">模版内容</label>
+				<textarea ng-model='text' style="height: 100%;resize: vertical;" required="required" class="form-control"></textarea>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-sm" ng-click='cancel()'>取消</button>
+		<button class="btn btn-sm btn-info" ng-click='save()' ng-disabled='!myModelForms.$dirty||myModelForms.$invalid'>保存</button>
+	</div>
+</script>

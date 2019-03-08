@@ -1,0 +1,27 @@
+<div>
+	<table class="table table-hover table-bordered" style="width: 500px;float: left;">
+		<tr>
+			<th>
+				集中器ID
+			</th>
+			<th>
+				是否选中
+			</th>
+		</tr>
+		<tr>
+			<th>
+				全选
+			</th>
+			<th>
+				<input type="checkbox" ng-model='allCheck' ng-change='clickAll()'/>
+			</th>
+		</tr>
+		<tr ng-repeat="item in allDevice">
+			<td>{{item.name}}</td>
+			<td><input type="checkbox" ng-model="$parent.checked[$index]" ng-true-value="{{item.id}}"  ng-checked='allCheck' /></td>
+		</tr>
+	</table>
+	<div style="float: left;">
+		<button type="button" class="btn btn-info" ng-click="submit()" ng-disabled='checked.length==0?true:false'>群抄</button>
+	</div>
+</div>

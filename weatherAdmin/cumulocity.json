@@ -1,0 +1,16 @@
+{
+  "name": "Weather settings",
+  "description": "Configure the API key for weather forecasts",
+  "icon": "cloud",
+  "category": "Administrator",
+  "ngModules": [
+    "myapp.weatherAdmin"
+  ],
+  "imports": [
+    "myapplication/weatherService"
+  ],
+  "js": [
+    "weatheradmin.config.js",
+    "weatheradmin.controller.js"
+  ]
+}

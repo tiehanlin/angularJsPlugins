@@ -1,0 +1,12 @@
+{
+  "name": "meterReadingSingle world plugin testing",
+  "description": "Simple meterReadingSingle world plugin.",
+  "ngModules": [
+    "myapp.meterReadingSingle"
+  ],
+  "js": [
+    "meterReadingSingle.module.js",
+    "meterReadingSingle.config.js",
+    "meterReadingSingle.controller.js"
+  ]
+}

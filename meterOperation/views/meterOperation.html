@@ -1,0 +1,68 @@
+<div>
+	<div class="row">
+		<div class="card col-md-12 col-lg-10">
+			<div class="card-header">
+				表具操作列表
+			</div>
+			<hr />
+			<div class="card-block">
+				<div class="col-md-12">
+					<button type="button" class="btn btn-danger" ng-click="switch('open')">开阀</button>
+					<button type="button" class="btn btn-danger" ng-click="switch('close')">关阀</button>
+					<button type="button" class="btn btn-info" ng-click="reading('xs')">读取结算记录</button>
+				</div>
+				<table class="table table-striped table-hover table-filtered-sorted">
+					<thead>
+						<tr>
+							<th>
+								<span>
+									表具名
+								</span>
+							</th>
+							<th>
+								<span>
+									结算时间
+								</span>
+							</th>
+							<th>
+								<span>
+									结算读数
+								</span>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in measurements track by $index">
+							<td>{{device.name}}</td>
+							<td>{{item.time|date:"yyyy-MM-dd HH:mm:ss"||"暂无记录"}}</td>
+							<td>{{item.c8y_Acc.Acc.value}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/ng-template" id="reading.html">
+
+    <div class="modal-header">
+        <h3 class="modal-title" id="readingTitle">结算记录筛选</h3>
+    </div>
+    <div class="modal-body" id="readingBody">
+        <div class="form-group">
+        	<select class="form-control" ng-model="chooseTime" ng-options="item.text for item in billingMethod" ng-change="category(chooseTime)" required>
+            	<option value="">-- 请选择--</option>
+        	</select>
+    	</div>
+    	<div class="form-group">
+        	<label class="sr-only" for="time"></label>
+        		<div class="input-group">
+            		<input type="date" class="form-control" id="time" ng-model="$parent.days" required>
+        		</div>
+    	</div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok(days|date:'yy M d')" ng-disabled="!(chooseTime&&days)">确定</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">取消</button>
+    </div>
+</script>

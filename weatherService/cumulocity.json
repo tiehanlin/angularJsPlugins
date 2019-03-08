@@ -1,0 +1,18 @@
+{
+  "name": "Weather service plugin",
+  "description": "Weather service based on darksky.net",
+  "icon": "cloud",
+  "ngModules": [
+    "myapp.weatherService"
+  ],
+  "js": [
+      "angular-dark-sky/angular-dark-sky.min.js",
+      "weatherService.js"
+  ],
+  "less": [
+    "weather.less"
+  ],
+  "copy": [
+    "weather-icons/font"
+  ]
+}

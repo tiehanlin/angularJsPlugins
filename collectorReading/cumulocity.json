@@ -1,0 +1,12 @@
+{
+  "name": "collectorReading world plugin testing",
+  "description": "collectorReading plugin.",
+  "ngModules": [
+    "myapp.collectorReading"
+  ],
+  "js": [
+    "collectorReading.module.js",
+    "collectorReading.config.js",
+    "collectorReading.controller.js"
+  ]
+}

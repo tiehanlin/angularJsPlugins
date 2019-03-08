@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7.2 (28276) - http://www.bohemiancoding.com/sketch -->
+    <title>connect</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="connect">
+            <polygon id="Fill-64" fill="#1fa22e" points="174.704 36.2374189 164.085418 25.6079 139.913595 49.7970546 127.035973 36.9278545 90.704 73.2658846 127.035973 109.6079 163.385883 73.2658846 150.518226 60.3976808"></polygon>
+            <path d="M84.4970365,104.087992 L90.1364579,98.4493695 L101.43315,109.75339 L95.7967037,115.388046 L84.4970365,104.087992 Z M90.1374496,87.8772 L79.2235279,98.8063698 L72.0639319,91.6455373 L35.8891308,127.81265 L48.697073,140.622022 L25,164.309989 L35.5618916,174.8772 L59.2589646,151.190225 L72.0639319,163.998605 L108.228817,127.831492 L101.070212,120.666693 L112,109.73554 L90.1374496,87.8772 Z" id="Fill-65" fill="#ffffff"></path>
+        </g>
+    </g>
+</svg>

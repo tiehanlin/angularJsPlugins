@@ -1,0 +1,12 @@
+{
+  "name": "managerReading world plugin testing",
+  "description": "managerReading plugin.",
+  "ngModules": [
+    "myapp.managerReading"
+  ],
+  "js": [
+    "managerReading.module.js",
+    "managerReading.config.js",
+    "managerReading.controller.js"
+  ]
+}

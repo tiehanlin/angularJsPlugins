@@ -1,0 +1,19 @@
+<div ng-controller="weatherAdminController">
+  <div class="col-lg-6 panel panel-clean">
+    <p translate>Weather functionality is based on the <a href="https://darksky.net" target="_blank">Dark Sky</a> service. Usage of Dark Sky requires an API key that can be obtained by registering at <a href="https://darksky.net/dev/" target="_blank">https://darksky.net/dev/</a>. Paste the API key below.</p>
+    <form class="form-horizontal" name="weatherAdminForm" novalidate>
+      <div class="form-group">
+        <label for="key" class="control-label" translate>API Key</label>
+        <div ng-class="{'has-error': invalid('license')}">
+          <input type="text" class="form-control" required name="key" id="key" ng-model="key" c8y-autocomplete="off">
+        </div>
+      </div>
+      <div class="form-group ">
+        <button type="submit" class="btn btn-primary" ng-click="updateKey()"
+                ng-disabled="weatherAdminForm.$invalid||weatherAdminForm.$pristine" translate>
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

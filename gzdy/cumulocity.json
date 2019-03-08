@@ -1,0 +1,5 @@
+{
+  "description": "gzdy Branding Plugin",
+  "less": ["main.less"],
+  "copy": ["img"]
+}

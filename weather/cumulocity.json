@@ -1,0 +1,16 @@
+{
+  "name": "Weather",
+  "description": "Shows the current weather at the location of a device.",
+  "category": "Widgets",
+  "icon": "cloud",
+  "ngModules": [
+    "myapp.weather"
+  ],
+  "imports": [
+    "myapplication/weatherService"
+  ],
+  "js": [
+    "weather.config.js",
+    "weather.controller.js"
+  ]
+}

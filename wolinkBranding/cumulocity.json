@@ -1,0 +1,7 @@
+{
+  "name": "Wo-Link",
+  "category": "Branding",
+  "description": "Pied Piper Branding Plugin",
+  "less": ["main.less"],
+  "copy": ["img"]
+}

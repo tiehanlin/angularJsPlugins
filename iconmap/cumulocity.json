@@ -1,0 +1,12 @@
+{
+  "name": "Icon Map",
+  "description": "Shows devices on a map using an icon for the device type.",
+  "ngModules": [
+    "myapp.iconmap"
+  ],
+  "js": [
+    "iconmap.module.js",
+    "iconmap.config.js",
+    "iconmap.controller.js"
+  ]
+}

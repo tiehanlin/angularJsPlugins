@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7.2 (28276) - http://www.bohemiancoding.com/sketch -->
+    <title>display</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="display">
+            <g id="Group-3" transform="translate(25.000000, 30.000000)">
+                <path d="M30,87.254 L73.113,87.254 L73.113,78.151 L30,78.151 L30,87.254 Z M30,70.87 L119.503,70.87 L119.503,61.768 L30,61.768 L30,70.87 Z M30,54.486 L119.503,54.486 L119.503,45.384 L30,45.384 L30,54.486 Z M30,38.103 L119.503,38.103 L119.503,29 L30,29 L30,38.103 Z" id="Fill-77" fill="@color0"></path>
+                <path d="M96.26,125.031 L111.59,140.361 L38.41,140.361 L53.74,125.031 L96.26,125.031 Z M134.669,100.637 L15.331,100.637 L15.331,15.331 L134.669,15.33 L134.669,100.637 Z M0,115.968 L150,115.968 L150,0 L0,0 L0,115.968 Z" id="Fill-78" fill="#ffffff"></path>
+            </g>
+        </g>
+    </g>
+</svg>

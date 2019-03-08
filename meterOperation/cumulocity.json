@@ -1,0 +1,12 @@
+{
+  "name": "meterOperation world plugin testing",
+  "description": "meterOperation plugin.",
+  "ngModules": [
+    "meterOperation"
+  ],
+  "js": [
+    "meterOperation.module.js",
+    "meterOperation.config.js",
+    "meterOperation.controller.js"
+  ]
+}

@@ -1,0 +1,16 @@
+<div ng-controller="commandConfig" id="commandConfig">
+	<h3 style="margin-bottom: 8px;">请输入命令标题</h3>
+	<form class="form-horizontal">
+		<div class="form-group">
+					<input type="text" class="form-control" style="width: 100%;" ng-model="config.commandTypes.name" placeholder="命令标题"  required="required">
+					<!--<span class="input-group-btn">
+		            <button class="btn btn-link" uib-tooltip="删除" ng-click="remove($index)" ng-disabled="config.commandTypes.length <= 1" disabled="disabled">
+		              <i c8y-icon="minus-circle" class="text-danger fa fw fa-minus-circle"></i>
+		            </button>
+        	</span>-->
+		</div>
+			<!--<button class="btn-add-block" ng-click="add()">
+  			  <i c8y-icon="plus-circle" class="fa fw fa-plus-circle"></i> <translate>添加命令标题</translate>
+  		</button>-->
+	</form>
+</div>

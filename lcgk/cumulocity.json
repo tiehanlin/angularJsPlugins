@@ -1,0 +1,10 @@
+{
+  "name": "lcgk",
+  "description": "lcgkBranding Plugin",
+  "less": [
+    "main.less"
+  ],
+  "copy": [
+    "img"
+  ]
+}

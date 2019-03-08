@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7.2 (28276) - http://www.bohemiancoding.com/sketch -->
+    <title>energy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="energy">
+            <polygon id="Fill-8" fill="@color0" points="82.5437124 145 98.5208594 108.148 66 113.924 117.08195 55 101.633934 90.919 134 86.238"></polygon>
+            <path d="M100,25.8601 C58.578,25.8601 25,59.4381 25,100.8601 C25,142.2821 58.578,175.8601 100,175.8601 C141.422,175.8601 175,142.2821 175,100.8601 C175,59.4381 141.422,25.8601 100,25.8601 M100,40.4231 C133.401,40.4231 160.438,67.4521 160.438,100.8601 C160.438,134.2601 133.407,161.2971 100,161.2971 C66.599,161.2971 39.562,134.2671 39.562,100.8601 C39.562,67.4601 66.594,40.4231 100,40.4231" id="Fill-10" fill="#545658"></path>
+        </g>
+    </g>
+</svg>

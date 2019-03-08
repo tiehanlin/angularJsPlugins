@@ -1,0 +1,18 @@
+{
+  "name": "companyInfo",
+  "description": "companyInfo.",
+  "ngModules": [
+    "myapp.companyInfo"
+  ],
+  "js": [
+    "companyInfo.module.js",
+    "companyInfo.config.js",
+    "companyInfo.controller.js"
+  ],
+  "copy":[
+  "font"
+  ],
+   "css":[
+   "font/iconfont.css"
+   ]
+}

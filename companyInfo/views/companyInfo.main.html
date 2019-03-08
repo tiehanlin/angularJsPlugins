@@ -1,0 +1,157 @@
+<style>
+textarea {
+    width: 100%;
+    border: 0px;
+    resize: vertical;
+    height: 108%;
+    padding-top: 28px;
+    background: transparent;
+    min-height:70px;
+}
+
+@media only screen and (max-width:768px) {
+    #imgBg {
+        display: block;
+        /*如果需要显示图片设置成block*/
+        max-width: 100% !important;
+        width:100% !important;
+            }
+    #myForm {
+        width: 100% !important;
+    }
+    #myForm table tr td:first-child {
+        font-size: 14px;
+        width: 110px;
+    }
+    #comeIn{
+        left: 0 !important;
+    }
+}
+
+#sureButton {
+    display: none;
+}
+
+table tr td:first-child {
+    font-size: 22px;
+    width: 200px;
+    height: 100px;
+    vertical-align: middle;
+    background: transparent;
+}
+
+#imgBg {
+    background-size: cover;
+    width: 45%;
+    margin-right: 20px;
+    height: 591px;
+    box-sizing: border-box;
+    padding: 20px;
+    max-width: 50%;
+    float: left;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#tableText {
+    height: 500px
+}
+
+#tutu {
+    background-position: center;
+    background-size: cover;
+}
+</style>
+<div ng-controller='companyInfoController' style="padding-top: 20px;overflow: hidden;">
+    <div id="imgBg">
+        <div id="tutu" style="height: 500px;width: 100%;background-color: transparent;overflow: hidden;margin-bottom: 20px;">
+            <!--<img ng-src="{{picSrc}}" id="picSrc" style="width: 100%;" />-->
+        </div>
+        <div class="text-center">
+            <button type="button" style="color: black;" class="btn btn-info btn-sm" ng-show="show" ng-click="changePic()" id="changePic">更改图片</button>
+        </div>
+    </div>
+    <form id="myForm" style="width:50%;height:591px;float: left;margin-bottom: 15px;padding: 20px;box-sizing: border-box;" name="myForm">
+        <table class="table table-bordered table-hover text-center" id="tableText">
+            <tr>
+                <td><i class="iconfont icon-gongsijieshao" style="font-size: 22px;color: rgb(56,205,221);margin-right: 5px;"></i>公司介绍</td>
+                <td>
+                    <textarea id="comInfo" ng-model="comInfo" readonly="readonly">点击下方按钮才可以修改公司信息</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td><i class="iconfont icon-zhuyingyewu" style="font-size: 22px;color: rgb(250,177,87);margin-right: 5px;"></i>主营业务</td>
+                <td>
+                    <textarea id="comBusiness" ng-model="comBusiness" readonly="readonly">点击下方按钮才可以修改公司信息</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td><i class="iconfont icon-zhuyingchanpin" style="font-size: 22px;color: rgb(252,112,114);margin-right: 5px;"></i>主营产品</td>
+                <td>
+                    <textarea id="comProduct" ng-model="comProduct" readonly="readonly">点击下方按钮才可以修改公司信息</textarea>
+                </td>
+                
+            </tr>
+            <tr>
+                <td><i class="iconfont icon-suoshuohangye" style="font-size: 22px;color: rgb(118,159,242);margin-right: 5px;"></i>所属行业</td>
+                <td>
+                    <textarea id="comIndustry" ng-model="comIndustry" readonly="readonly">点击下方按钮才可以修改公司信息</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td><i class="iconfont icon-wangzhan" style="font-size: 22px;color: rgb(110,196,116);margin-right: 5px;"></i>公司网站</td>
+                <td  ng-hide="web"> 
+                	<a ng-href="{{comWeb}}" target="_blank">
+                		<textarea id="comWeb" ng-model="comWeb" readonly="readonly" tooltip-placement="top-left" uib-tooltip="请输入http://或https://前缀,再输入您的域名">www.baidu.com</textarea>
+                	</a>   
+                </td>
+                <td ng-hide="!web">
+                    <textarea id="comWeb1" ng-model="comWeb" readonly="readonly" tooltip-placement="top-left" uib-tooltip="请输入http://或https://前缀,再输入您的域名">点击下方按钮才可以修改公司信息</textarea>
+                </td>
+            </tr>
+            <!--<tr>
+				<td colspan="2" class="text-center"><button type="button" class="btn btn-default btn-sm" ng-click="changeView()" id="changeButton">更改信息</button><button type="button" class="btn btn-info btn-sm" ng-click="changeWord()" id="sureButton">确认更改</button></td>
+			</tr>-->
+        </table>
+        <div class="text-center">
+            <button type="button" style="color: black;" class="btn btn-info btn-sm" ng-show="show" ng-click="changeView()" id="changeButton">更改信息</button>
+            <button type="button" class="btn btn-info btn-sm" ng-click="changeWord()" ng-disabled='!myForm.$dirty' id="sureButton">确认更改</button>
+        </div>
+    </form>
+    <div class="text-center">
+        <a id="comeIn" class="btn btn-info btn-lg" ng-href="#/home" style="position: relative;left: -50px;">进入系统</a>
+    </div>
+</div>
+<script type="text/ng-template" id="changePic.html">
+    <!--删除信息弹窗-->
+    <style>
+    #spinnerLoding {
+        opacity: 1;
+        margin-left: 50%;
+    }
+    </style>
+    <div class="modal-header">
+        <h3 class="modal-title" id="changePicTitle" style="color: black">更换公司图片</h3>
+    </div>
+    <div class="modal-body" id="changePicBody">
+        <div id="showPic">
+            <p style="margin-bottom: 10px;">只支持jpeg,png格式的图片<br/>
+               请您上传一张比例大约为4:3的图片
+            </p>
+            <div class="spinner" data-ng-show="loading" id="spinnerLoding">
+                <!---->
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+        </div>
+        <input type="file" id="file" style="outline:none" />
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click='$ctrl.okok()'>确定</button>
+        <button class="btn btn-warning" type="button" ng-click='$ctrl.cancel()'>取消</button>
+    </div>
+</script>

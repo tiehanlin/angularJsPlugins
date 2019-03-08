@@ -1,0 +1,414 @@
+<style>
+.col-sm-9{
+    padding-left: 30px;
+    padding-right: 0;
+}
+
+ng-amap {
+    display: block;
+    height: 100%;
+}
+
+.ul {
+    list-style: none;
+    margin-bottom: 0;
+}
+
+.li {
+    text-align: center;
+}
+
+.lis {
+    margin-top: 5px;
+    padding-left: 32%;
+    text-align: left;
+}
+
+
+a:focus,
+a:hover {
+    text-decoration: none;
+}
+
+a .icon-shangchuanlogo,
+a .icon-gongsixinxi,
+a .icon-kehuguanli,
+a .icon-zhuceshebei,
+a .icon-shujumoxing,
+a .icon-quanbushebei,
+a .icon-chuangjianbaojing,
+a .icon-baojingliebiao,
+a .icon-baobiaoshengcheng,
+a .icon-yonghu,
+a .icon-jiaose {
+    font-size: 1em;
+}
+
+a .icon-shangchuanlogo,
+a .icon-gongsixinxi {
+    color: rgb(56, 204, 222);
+}
+
+.em>span,
+a .icon-kehuguanli {
+    color: rgb(250, 176, 87);
+}
+
+a .icon-zhuceshebei,
+a .icon-shujumoxing,
+a .icon-quanbushebei {
+    color: rgb(252, 112, 116);
+}
+
+a .icon-chuangjianbaojing,
+a .icon-baojingliebiao {
+    color: rgb(119, 160, 244);
+}
+
+a .icon-baobiaoshengcheng {
+    color: rgb(114, 206, 119);
+}
+
+a .icon-yonghu,
+a .icon-jiaose {
+    color: rgb(51, 186, 220);
+}
+
+.fengexian {
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.em {
+    font-size: 2em
+}
+
+.card-block {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+}
+
+.icon3 {
+    margin-top: 8px;
+}
+
+.li img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.h4 {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.cursor0 {
+    cursor: not-allowed;
+}
+
+.cursor1 {
+    cursor: auto;
+}
+@media only screen and (max-width: 768px){
+    .col-xs-12{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+</style>
+<script>
+switch (screen.height) {
+    case 1080:
+        $('.heig').css({ 'height': '600px' });
+        $('.echhei').css({ 'height': '402px' });
+        $('.h4').css({ 'font-size': '18px' });
+        $('.ul').css({ 'margin-top': '40px' });
+        $('.li').css({ 'font-size': '16px' });
+        $('.lis').css({ 'margin-top': '10px' })
+        $('.awen').css({ 'font-size': '14px' });
+        break;
+    case 1050:
+        $('.heig').css({ 'height': '570px' });
+        $('.echhei').css({ 'height': '352px' });
+        $('.h4').css({ 'font-size': '16px' });
+        $('.ul').css({ 'margin-top': '40px' });
+        $('.li').css({ 'font-size': '14px' });
+        $('.lis').css({ 'margin-top': '10px' });
+        $('.awen').css({ 'font-size': '14px' });
+        break;
+    case 1024:
+        $('.heig').css({ 'height': '530px' });
+        $('.echhei').css({ 'height': '332px' });
+        $('.h4').css({ 'font-size': '16px' });
+        $('.ul').css({ 'margin-top': '40px' });
+        $('.li').css({ 'font-size': '14px' });
+        $('.lis').css({ 'margin-top': '10px' });
+        $('.awen').css({ 'font-size': '12px' });
+        break;
+    case 900:
+        $('.heig').css({ 'height': '430px' });
+        $('.echhei').css({ 'height': '302px' });
+        $('.h4').css({ 'font-size': '16px' });
+        $('.ul').css({ 'margin-top': '10px' });
+        $('.li').css({ 'font-size': '14px' });
+        $('.lis').css({ 'margin-top': '5px' });
+        $('.awen').css({ 'font-size': '12px' });
+        break;
+    case 800:
+        $('.heig').css({ 'height': '330px' });
+        $('.echhei').css({ 'height': '222px' });
+        $('.h4').css({ 'font-size': '14px' });
+        $('.ul').css({ 'margin-top': '5px' });
+        $('.li').css({ 'font-size': '14px' });
+        $('.lis').css({ 'margin-top': '5px' });
+        $('.awen').css({ 'font-size': '12px' });
+        break;
+    case 768:
+        $('.heig').css({ 'height': '300px' });
+        $('.echhei').css({ 'height': '202px' });
+        $('.h4').css({ 'font-size': '12px' });
+        $('.ul').css({ 'margin-top': '0px' });
+        $('.li').css({ 'font-size': '12px' });
+        $('.lis').css({ 'margin-top': '3px' });
+        $('.awen').css({ 'font-size': '12px' });
+        break;
+    case 720:
+        $('.heig').css({ 'height': '255px' });
+        $('.echhei').css({ 'height': '157px' });
+        $('.h4').css({ 'font-size': '12px' });
+        $('.ul').css({ 'margin-top': '0px' });
+        $('.li').css({ 'font-size': '12px' });
+        $('.lis').css({ 'margin-top': '3px' });
+        $('.awen').css({ 'font-size': '12px' });
+        break;
+    default:
+        $('.heig').css({ 'height': '300px' });
+        $('.echhei').css({ 'height': '202px' });
+        $('.h4').css({ 'font-size': '12px' });
+        $('.ul').css({ 'margin-top': '0px' });
+        $('.li').css({ 'font-size': '12px' });
+        $('.lis').css({ 'margin-top': '3px' });
+        $('.awen').css({ 'font-size': '12px' });
+        break;
+}
+</script>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-xs-12 heig cardbg">
+            <div class="h4" id="www">设备统计</div>
+            <div class="echhei" style="margin:0 auto">
+                <ng-echarts class="col-sm-12 col-xs-12" style="height: 100%;" ec-config="lineConfig" ec-option="lineOption"></ng-echarts>
+            </div>
+            <div class="liebhei">
+                <ul class="col-sm-12 col-xs-12 ul">
+                    <li class="li lis"><img src="appinterface_devicesAll/img/critical.png" /><a ng-href="#/alarms">严重报警<span> {{critical}}</span></a></li>
+                    <li class="li lis"><img src="appinterface_devicesAll/img/major.png" /><a ng-href="#/alarms">重要报警<span> {{major}}</span></a></li>
+                    <li class="li lis"><img src="appinterface_devicesAll/img/newAlarms.png" /><a ng-href="#/alarms">最新报警<span> {{newAlarms}}</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-9 col-xs-12 heig">
+            <ng-amap map-options="opts" loaded='auto(map)'>
+                <marker ng-repeat='x in markerOpts' options="x" click="showWindow(e, marker, map)" loaded='mar(marker)'></marker>
+                <plugin name="ToolBar" options="toolBar"></plugin>
+            </ng-amap>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 col-xs-12 modal-demo icon3" ng-controller="changeController as $ctrl" style="padding-left: 0">
+            <div class="cardbg" style="overflow: hidden;position: relative;">
+                <div class="h4" style="padding-left: 15px;">企业信息</div>
+                <div class="col-sm-6 col-xs-6 bord fengexian">
+                    <a title="上传Logo" ng-click="$ctrl.logos()" id="uplogo" class="cursor0">
+                        <div class="card-block text-center">
+                            <div class="em">
+                                <i class="iconfont icon-shangchuanlogo"></i>
+                            </div>
+                            <p class="word-break awen">
+                                上传Logo
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-xs-6 bord">
+                    <div class="card-block text-center">
+                        <a title="公司信息" href="#/">
+                            <div class="em">
+                                <i class="iconfont icon-gongsixinxi"></i>
+                            </div>
+                            <p class="word-break awen">
+                                公司信息
+                            </p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12 icon3">
+            <div class="cardbg" style="overflow: hidden;">
+                <div class="h4" style=";padding-left: 15px;">客户管理</div>
+                <div class="col-sm-6 col-xs-6 bord fengexian">
+                    <a title="客户数量">
+                        <div class="card-block text-center">
+                            <div class="em">
+                                <span>{{grouplen}}</span>
+                            </div>
+                            <p class="word-break awen">
+                                客户数量
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-xs-6 bord">
+                    <div class="card-block text-center">
+                        <a title="客户管理" ng-href="#/group">
+                            <div class="em">
+                                <i class="iconfont icon-kehuguanli"></i>
+                            </div>
+                            <p class="word-break awen">
+                                客户管理
+                            </p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12 icon3" style="padding-right: 0">
+            <div class="cardbg" style="overflow: hidden;">
+                <div class="h4" style=";padding-left: 15px;">设备管理</div>
+                <div class="col-sm-4 col-xs-4 bord fengexian">
+                    <div class="card-block text-center">
+                        <a title="注册设备" ng-href="{{deviceregistration}}" ng-class="{true:'cursor1',false:'cursor0'}[dev_con_adm]">
+                            <div class="em">
+                                <i class="iconfont icon-zhuceshebei"></i>
+                            </div>
+                            <p class="word-break awen">
+                                注册设备
+                            </p>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-sm-4 col-xs-4 bord fengexian">
+                    <div class="card-block text-center">
+                        <a title="数据模型" ng-href="#/device-types">
+                            <div class="em">
+                                <i class="iconfont icon-shujumoxing"></i>
+                            </div>
+                            <p class="word-break awen">
+                                数据模型
+                            </p>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-sm-4 col-xs-4 bord">
+                    <div class="card-block text-center">
+                        <a title="全部设备" ng-href="#/device">
+                            <div class="em">
+                                <i class="iconfont icon-quanbushebei"></i>
+                            </div>
+                            <p class="word-break awen">
+                                全部设备
+                            </p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12 icon3" style="padding-left: 0">
+            <div class="cardbg" style="overflow: hidden;">
+                <div class="h4" style=";padding-left: 15px;">报警管理</div>
+                <div class="col-sm-6 col-xs-6 bord fengexian">
+                    <div class="card-block text-center">
+                        <a title="创建报警" ng-href="{{rules}}" ng-class="{true:'cursor1',false:'cursor0'}[inv_adm]">
+                            <div class="em">
+                                <i class="iconfont icon-chuangjianbaojing"></i>
+                            </div>
+                            <p class="word-break awen">
+                                创建报警
+                            </p>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-xs-6 bord">
+                    <div class="card-block text-center">
+                        <a title="报警列表" ng-href="#/alarms">
+                            <div class="em">
+                                <i class="iconfont icon-baojingliebiao"></i>
+                            </div>
+                            <p class="word-break awen">
+                                报警列表
+                            </p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12 icon3">
+            <div class="cardbg" style="overflow: hidden;">
+                <div class="h4" style=";padding-left: 15px;">数据管理</div>
+                <div class="col-sm-12 col-xs-12 bord">
+                    <div class="card-block text-center">
+                        <a title="报表生成" ng-href="#/export">
+                            <div class="em">
+                                <i class="iconfont icon-baobiaoshengcheng"></i>
+                            </div>
+                            <p class="word-break awen">
+                                报表生成
+                            </p>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-sm-6 bord"></div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12 icon3" style="padding-right: 0">
+            <div class="cardbg" style="overflow: hidden;">
+                <div class="h4" style=";padding-left: 15px;">权限管理</div>
+                <div class="col-sm-6 col-xs-6 bord fengexian">
+                    <div class="card-block text-center">
+                        <a title="用户" ng-href="{{users}}" ng-class="{true:'cursor1',false:'cursor0'}[use_man_adm]">
+                            <div class="em">
+                                <i class="iconfont icon-yonghu"></i>
+                            </div>
+                            <p class="word-break awen">
+                                用户
+                            </p>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-xs-6 bord">
+                    <div class="card-block text-center">
+                        <a title="角色" ng-href="{{roles}}" ng-class="{true:'cursor1',false:'cursor0'}[use_man_adm]">
+                            <div class="em">
+                                <i class="iconfont icon-jiaose"></i>
+                            </div>
+                            <p class="word-jiaose" style="min-height: 1.2em; max-width: 100%">
+                                角色
+                            </p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <div class="modal-title" id="modal-title" style="color: black">更换主题Logo</div>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <form method="post">
+            <div class="form-group">
+                <label for="exampleInputFile">请选择文件</label>
+                <input type="file" ng-model="file" name="file" id="file">
+                <p class="help-block">{{file.name}}</p>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="$ctrl.file()">确定上传</button>
+        <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">取消</button>
+    </div>
+</script>

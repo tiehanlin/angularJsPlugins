@@ -1,0 +1,51 @@
+<style>
+ng-amap {
+    display: block;
+    height: 600px;
+}
+.lan{
+    background: rgba(0, 0, 255, 0.1)
+}
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8" style="height: 600px" style="width: 100%">
+            <ng-amap map-options="opts" loaded="auto(map)">
+                <marker ng-repeat='x in markerOpts' options="x" click="showWindow(e, marker, map)"></marker>
+                <polyline options='polylineOpts' loaded='setOptions(polyline)'></polyline>
+                <plugin name="ToolBar" options="toolBar"></plugin>
+            </ng-amap>
+        </div>
+        <div class="col-md-4" style="height: 600px" style="width: 100%">
+            <div class="row" style="margin-bottom: 10px">
+                <form class="form-inline pull-right">
+                    <div class="form-group">
+                        <select class="form-control" ng-init="change=timeopt[1]" ng-model="change" ng-change="time(change,dt1,dt2)" ng-options="opt for opt in timeopt"></select>
+                    </div>
+                    <div class="form-group" ng-show="customize">
+                        <input type="text" id="startTime" ng-focus="open1()" ng-change="jugeDate()" class="form-control" uib-datepicker-popup="{{format1}}" style="width: 120px;" ng-model="dt1" is-open="popup1.opened" datepicker-options="dateOptions1" ng-required="true" close-text="Close" show-button-bar="false" alt-input-formats="altInputFormats" required="required" />
+                    </div>
+                    <div class="form-group" ng-show="customize">
+                        <input type="text" id="endTime" name="endTime" ng-change="jugeDate()" ng-class="{'redDiv':custom.endTime}" style="width: 120px;" ng-focus="open2()" class="form-control" uib-datepicker-popup="{{format2}}" ng-model="dt2" is-open="popup2.opened" datepicker-options="dateOptions2" ng-required="true" close-text="Close" show-button-bar="false" alt-input-formats="altInputFormats" required="required" />
+                    </div>
+                    <button type="button" class="btn btn-link" ng-click="search(change,dt1,dt2)"> <i class="fa fw fa-refresh"></i></button>
+                </form>
+            </div>
+            <div class="panel panel-clean">
+                <div class="panel-body">
+                    <div class="alert alert-warning" ng-show="eves.length == 0" style="margin-top:15px"> 没有测量值产生 </div>
+                </div>
+                <div style="max-height:400px; overflow: auto">
+                    <table class="table table-condensed">
+                        <tr class="interact trackcss" ng-repeat="event in eves track by $index">
+                            <td ng-click="markerToggle(eves[$index],$index)">{{event.time|date : 'yyyy-MM-dd HH:mm:ss'}}</td>
+                        </tr>
+                    </table>
+                    <button class="btn btn-link btn-block" ng-click="more(change, dt1, dt2)" ng-show="moreList" ng-disabled="ban">加载更多</button> </div>
+                <div class="panel-footer" ng-show="eves.length !== 0">
+                    <button type="button" class="btn btn-default btn-sm" ng-click="clearAll()">隐藏所有标记</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

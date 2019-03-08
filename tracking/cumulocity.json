@@ -1,0 +1,14 @@
+{
+  "name": "tracking",
+  "description": "tracking",
+  "category": "Widgets",
+  "ngModules": [
+    "tracking"
+  ],
+  "js": [
+    "node_modules/angular-amap/dist/angular-amap.min.js",
+    "tracking.module.js",
+    "tracking.config.js",
+    "tracking.controller.js"
+  ]
+}

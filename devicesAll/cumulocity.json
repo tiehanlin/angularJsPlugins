@@ -1,0 +1,25 @@
+{
+  "name": "devicesAll",
+  "description": "devicesAll",
+  "category": "Widgets",
+  "ngModules": [
+    "myapp.devicesAll"
+  ],
+  "js": [
+    "node_modules/angular-amap/dist/angular-amap.min.js",
+    "devicesAll.module.js",
+    "devicesAll.config.js",
+    "devicesAll.controller.js",
+    "changeController.js",
+    "changeLogo.controller.js",
+    "node_modules/echarts/dist/echarts.min.js",
+    "node_modules/ng-echarts/dist/ng-echarts.min.js"
+  ],
+  "copy": [
+    "img",
+    "font"
+  ],
+  "css":[
+    "font/iconfont.css"
+  ]
+}

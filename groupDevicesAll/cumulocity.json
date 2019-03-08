@@ -1,0 +1,23 @@
+{
+  "name": "groupDevicesAll",
+  "description": "groupDevicesAll",
+  "category": "Widgets",
+  "ngModules": [
+    "myapp.groupDevicesAll"
+  ],
+  "js": [
+    "node_modules/angular-amap/dist/angular-amap.min.js",
+    "groupDevicesAll.module.js",
+    "groupDevicesAll.config.js",
+    "groupDevicesAll.controller.js",
+    "node_modules/echarts/dist/echarts.min.js",
+    "node_modules/ng-echarts/dist/ng-echarts.min.js"
+  ],
+  "copy": [
+    "img",
+    "font"
+  ],
+  "css":[
+    "font/iconfont.css"
+  ]
+}
